@@ -1,0 +1,67 @@
+.TH holberton-shell 1 "August 2023" "Holberton Simple Shell Project"
+.SH NAME
+holberton-shell \- Holberton Simple Shell
+
+.SH SYNOPSIS
+holberton-shell
+
+.SH DESCRIPTION
+The holberton-shell is a basic Unix command-line interpreter developed as a project for Holberton School. It allows users to execute commands, manage processes, and navigate the file system.
+
+.SH OPTIONS
+The holberton-shell supports the following options:
+
+.PP
+.B \-h, \--help
+Displays a help message and exits.
+
+.SH COMMANDS
+The holberton-shell supports the execution of standard Unix commands and provides the following built-in commands:
+
+.PP
+.B exit
+Exit the shell.
+
+.PP
+.B env
+Print the current environment variables.
+
+.SH INTERACTIVE MODE
+Run the holberton-shell in interactive mode by executing the compiled binary. The shell will display a prompt, wait for user input, and execute commands accordingly.
+
+.PP
+$ ./holberton-shell
+($) /bin/ls
+file1.txt  file2.txt  directory/
+($)
+($) exit
+$
+
+.SH NON-INTERACTIVE MODE
+Commands can also be executed in non-interactive mode by piping input to the shell.
+
+.PP
+$ echo "/bin/ls" | ./holberton-shell
+file1.txt  file2.txt  directory/
+$
+
+.SH EXIT STATUS
+The holberton-shell returns the following exit statuses:
+
+.PP
+0: Successful execution.
+1: General error.
+2: Invalid command.
+
+.SH AUTHOR
+The holberton-shell was developed by Khaled Jallouli (jallouli.khaled.2001@gmail.com) as a project for Holberton School.
+
+.SH COPYRIGHT
+This is free and open-source software: you are free to modify and redistribute it.
+
+.SH BUGS
+Report bugs or issues to: jallouli.khaled.2001@gmail.com 
+.SH SEE ALSO
+.BR bash (1),
+.BR sh (1)
+
