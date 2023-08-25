@@ -12,6 +12,7 @@ char **parse_command(char *line)
     char *arg_copy = NULL;
     int arg_count = 0;
     char *arg;
+    int i ;
 
     /* Copy line for tokenization */
     arg_copy = strdup(line);
@@ -39,7 +40,7 @@ char **parse_command(char *line)
 
     /* Tokenize and store the arguments */
     arg = strtok(line, TOKEN_DELIMITERS);
-    for (int i = 0; i < arg_count; i++)
+    for ( i = 0; i < arg_count; i++)
     {
         args[i] = strdup(arg);
         if (!args[i])

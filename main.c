@@ -1,14 +1,15 @@
 #include "shell.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 
+/**
+ * main - Entry point of the shell program
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
     char *line;
     char **args;
+    int i;
 
     while (1)
     {
@@ -23,17 +24,16 @@ int main(void)
 
         args = parse_command(line); // Parse the input into arguments
 
-         if (args == NULL) // User entered "exit" command
+        if (args == NULL) // User entered "exit" command
         {
             free(line); // Free memory for the input line
             break; // Exit the loop
         }
 
-
         if (args != NULL)
         {
             // Fork a child process
-            pid_t child_pid = fork(); 
+            pid_t child_pid = fork();
 
             if (child_pid == -1)
             {
@@ -56,7 +56,7 @@ int main(void)
                 waitpid(child_pid, &child_status, 0);
 
                 // Free memory for the arguments array
-                for (int i = 0; args[i] != NULL; i++)
+                for (i = 0; args[i] != NULL; i++)
                     free(args[i]);
                 free(args);
             }
